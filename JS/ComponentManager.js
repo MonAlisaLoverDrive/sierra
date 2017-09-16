@@ -1,6 +1,6 @@
 window.Sierra.Component = {};
 
-window.Sierra.ComponentManager = {components:[]};
+window.Sierra.ComponentManager = {components: []};
 
 Sierra.Component.Parse = function (html)
 {
@@ -10,10 +10,11 @@ Sierra.Component.Parse = function (html)
         if (html.toLowerCase().indexOf('<' + component.selector.toLowerCase() + '>') !== -1)
             html = html.replace(new RegExp('<' + component.selector + '>(.*?)<\/' + component.selector.toLowerCase() + '>', 'ig'), component.ToHTML());
     }
-    html = html.replace(/{{(.*?)}}/g, (str, result) =>
-        {
-            return eval(result);
-});
+    html = html.replace(/{{([\s\S]*?)}}/g, (str, result) =>
+    {
+        let evalResult = eval(result);
+        return (evalResult !== undefined) ? evalResult : '';
+    });
     return html;
 };
 
@@ -31,8 +32,8 @@ Sierra.Component.Create = (selector, templateURL = undefined, styleURL = undefin
         $.get(templateURL, (data) =>
         {
             component.template = data;
-        Sierra.ComponentManager.components.push(component);
-    });
+            Sierra.ComponentManager.components.push(component);
+        });
     }
     else
         Sierra.ComponentManager.components.push(component);

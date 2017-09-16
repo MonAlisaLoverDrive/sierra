@@ -2,7 +2,7 @@ div.NotificationCard
 {
     position:   relative;
     padding:    0.5vmax;
-    background: rgba(0, 0, 0, 0.5);
+    background: #1f2026;
     display:    flex;
     
     div.Bell
@@ -30,16 +30,21 @@ div.NotificationCard
     {
         flex: 1;
         
-        h1
+        #Header
         {
             margin: 0;
-            
-            
         }
         
-        p
+        #Text
         {
             margin: 0;
+            
+            img
+            {
+                box-sizing: border-box;
+                width: 100%;
+            }
         }
+        
     }
 }

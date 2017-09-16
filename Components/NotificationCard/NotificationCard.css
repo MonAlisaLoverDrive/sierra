@@ -1,7 +1,7 @@
 div.NotificationCard {
   position: relative;
   padding: 0.5vmax;
-  background: rgba(0, 0, 0, 0.5);
+  background: #1f2026;
   display: flex;
 }
 div.NotificationCard div.Bell {
@@ -20,9 +20,13 @@ div.NotificationCard div.Avatar img {
 div.NotificationCard div.Text {
   flex: 1;
 }
-div.NotificationCard div.Text h1 {
+div.NotificationCard div.Text #Header {
   margin: 0;
 }
-div.NotificationCard div.Text p {
+div.NotificationCard div.Text #Text {
   margin: 0;
+}
+div.NotificationCard div.Text #Text img {
+  box-sizing: border-box;
+  width: 100%;
 }

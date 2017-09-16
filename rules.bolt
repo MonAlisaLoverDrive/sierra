@@ -1,0 +1,126 @@
+path /properties {
+  read() { true }
+}
+
+/* Users
+= = = = = = */
+    path /users/{uid} is User {
+      read() { auth != null && uid == auth.uid }
+      write() { auth != null && uid == auth.uid }
+    }
+
+    path /users/{uid}/public_data is UserPublicData {
+      read() {true}
+    }
+
+    path /users/{uid}/private_data/partylist {
+        index() {'date'}
+    }
+
+    type User {
+        private_data: UserPrivateData,
+        public_data: UserPublicData
+    }
+
+    type UserPrivateData {
+        email: String,
+        notifications: Object | Null,
+        partylist: Object | Null
+    }
+
+    type UserPublicData {
+        name: String,
+        username: String,
+        hash_tracker: String,
+        avatar: String | Null
+    }
+
+    type Notification {
+        date: Number,
+        text: String,
+        source: String
+    }
+
+/* Parties
+= = = = = = =*/
+    path /parties/{party_id} {
+        read() {this.child('public_data').child('owner').val() == auth.uid}
+        create() {this.child('public_data').child('owner').val() == auth.uid}
+        update() {data.child('public_data').child('owner').val() == auth.uid}
+        delete() {data.child('public_data').child('owner').val() == auth.uid}
+    }
+
+    path /parties/{party_id}/public_data is PartyPublicData {
+        write() {this.child('owner').val() == auth.uid}
+        read() {true}
+    }
+
+    path /parties/{party_id}/public_data/posts/{post_id} is Post {
+        create() {auth != null && this.child('author').val() == auth.uid}
+        delete() {auth != null && this.child('author').val() == auth.uid}
+    }
+
+    type PartyPublicData {
+        name: String,
+        description: String,
+        date: Number | Null,
+        owner: String,
+        cover_image: String  | Null,
+        is_private: Boolean,
+        hash_tracker: String
+    }
+
+    type Post {
+        author: String,
+        text: String | Null,
+        date: Number,
+        like_tracker: String,
+        id: String,
+        photo: String | Null
+    }
+
+/* Partylist
+= = = = = = = = =*/
+    path /partylist {
+        read() {true}
+        index() {'date'}
+    }
+
+    path /partylist/{party_id} {
+            create() {this.child('owner').val() == auth.uid}
+            update() {this.child('owner').val() == auth.uid}
+            delete() {data.child('owner').val() == auth.uid}
+    }
+
+/* Like trackers
+= = = = = = =*/
+    path /like_trackers {
+        read() {true}
+    }
+
+    path /like_trackers/{tracker_id} {
+        create() {auth != null && this.child('author').val() == auth.uid}
+        delete() {auth != null && this.child('author').val() == auth.uid}
+    }
+
+    path /like_trackers/{tracker_id}/likes/{user_id} {
+        write() {auth != null && user_id == auth.uid}
+    }
+
+/* Hashtag trackers */
+    path /hash_trackers {
+            read() {true}
+    }
+
+    path /hash_trackers/{tracker_id} {
+        create() {auth != null && this.child('author').val() == auth.uid}
+        delete() {auth != null && this.child('author').val() == auth.uid}
+    }
+
+    path /hash_trackers/{tracker_id}/tags/{hash} {
+            create() {auth != null}
+        }
+
+    path /hash_trackers/{tracker_id}/tags/{hash}/{user_id} {
+        write() {auth != null && user_id == auth.uid}
+    }

@@ -1,0 +1,150 @@
+{
+  "rules": {
+    "properties": {
+      ".read": "true"
+    },
+    "users": {
+      "$uid": {
+        ".validate": "newData.hasChildren(['private_data', 'public_data'])",
+        "private_data": {
+          ".validate": "newData.hasChildren(['email'])",
+          "email": {
+            ".validate": "newData.isString()"
+          },
+          "notifications": {
+            ".validate": "newData.hasChildren()"
+          },
+          "partylist": {
+            ".validate": "newData.hasChildren()",
+            ".indexOn": [
+              "date"
+            ]
+          },
+          "$other": {
+            ".validate": "false"
+          }
+        },
+        "public_data": {
+          ".validate": "newData.hasChildren(['name', 'username', 'hash_tracker', 'name', 'username', 'hash_tracker'])",
+          "name": {
+            ".validate": "newData.isString() && newData.isString()"
+          },
+          "username": {
+            ".validate": "newData.isString() && newData.isString()"
+          },
+          "hash_tracker": {
+            ".validate": "newData.isString() && newData.isString()"
+          },
+          "avatar": {
+            ".validate": "newData.isString() && newData.isString()"
+          },
+          "$other": {
+            ".validate": "false"
+          },
+          ".read": "true"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "auth != null && $uid == auth.uid",
+        ".write": "auth != null && $uid == auth.uid"
+      }
+    },
+    "parties": {
+      "$party_id": {
+        ".write": "data.val() == null && newData.child('public_data').child('owner').val() == auth.uid || data.val() != null && newData.val() != null && data.child('public_data').child('owner').val() == auth.uid || data.val() != null && newData.val() == null && data.child('public_data').child('owner').val() == auth.uid",
+        ".read": "data.child('public_data').child('owner').val() == auth.uid",
+        "public_data": {
+          ".validate": "newData.hasChildren(['name', 'description', 'owner', 'is_private', 'hash_tracker'])",
+          "name": {
+            ".validate": "newData.isString()"
+          },
+          "description": {
+            ".validate": "newData.isString()"
+          },
+          "date": {
+            ".validate": "newData.isNumber()"
+          },
+          "owner": {
+            ".validate": "newData.isString()"
+          },
+          "cover_image": {
+            ".validate": "newData.isString()"
+          },
+          "is_private": {
+            ".validate": "newData.isBoolean()"
+          },
+          "hash_tracker": {
+            ".validate": "newData.isString()"
+          },
+          "$other": {
+            ".validate": "false"
+          },
+          ".read": "true",
+          ".write": "newData.child('owner').val() == auth.uid",
+          "posts": {
+            "$post_id": {
+              ".validate": "newData.hasChildren(['author', 'date', 'like_tracker', 'id'])",
+              "author": {
+                ".validate": "newData.isString()"
+              },
+              "text": {
+                ".validate": "newData.isString()"
+              },
+              "date": {
+                ".validate": "newData.isNumber()"
+              },
+              "like_tracker": {
+                ".validate": "newData.isString()"
+              },
+              "id": {
+                ".validate": "newData.isString()"
+              },
+              "photo": {
+                ".validate": "newData.isString()"
+              },
+              "$other": {
+                ".validate": "false"
+              },
+              ".write": "data.val() == null && auth != null && newData.child('author').val() == auth.uid || data.val() != null && newData.val() == null && auth != null && newData.child('author').val() == auth.uid"
+            }
+          }
+        }
+      }
+    },
+    "partylist": {
+      ".read": "true",
+      ".indexOn": [
+        "date"
+      ],
+      "$party_id": {
+        ".write": "data.val() == null && newData.child('owner').val() == auth.uid || data.val() != null && newData.val() != null && newData.child('owner').val() == auth.uid || data.val() != null && newData.val() == null && data.child('owner').val() == auth.uid"
+      }
+    },
+    "like_trackers": {
+      ".read": "true",
+      "$tracker_id": {
+        ".write": "data.val() == null && auth != null && newData.child('author').val() == auth.uid || data.val() != null && newData.val() == null && auth != null && newData.child('author').val() == auth.uid",
+        "likes": {
+          "$user_id": {
+            ".write": "auth != null && $user_id == auth.uid"
+          }
+        }
+      }
+    },
+    "hash_trackers": {
+      ".read": "true",
+      "$tracker_id": {
+        ".write": "data.val() == null && auth != null && newData.child('author').val() == auth.uid || data.val() != null && newData.val() == null && auth != null && newData.child('author').val() == auth.uid",
+        "tags": {
+          "$hash": {
+            ".write": "data.val() == null && auth != null",
+            "$user_id": {
+              ".write": "auth != null && $user_id == auth.uid"
+            }
+          }
+        }
+      }
+    }
+  }
+}

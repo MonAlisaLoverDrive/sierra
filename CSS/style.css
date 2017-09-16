@@ -1,3 +1,6 @@
+.TextPitchBlack {
+  color: #1f2026;
+}
 .TextBlackIce {
   color: #2c2d36;
 }
@@ -35,7 +38,7 @@
   font-size: 2.5vh;
 }
 .TextXLg {
-  font-size: 2.6vh;
+  font-size: 3.0vh;
 }
 .TextCenter {
   text-align: center;

@@ -38,8 +38,24 @@
 
         <script>
 
-            setTimeout(Sierra.Load, 50);
+            $(()=>{setTimeout(Sierra.Load, 50)});
 
+        </script>
+
+
+        <!--Firebase-->
+        <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCG9waympHQGg_8sP177N4bqMJQjyP_hZA",
+                authDomain: "partyfyme-dd05c.firebaseapp.com",
+                databaseURL: "https://partyfyme-dd05c.firebaseio.com",
+                projectId: "partyfyme-dd05c",
+                storageBucket: "partyfyme-dd05c.appspot.com",
+                messagingSenderId: "924187375131"
+            };
+            firebase.initializeApp(config);
         </script>
     </body>
 </html>
