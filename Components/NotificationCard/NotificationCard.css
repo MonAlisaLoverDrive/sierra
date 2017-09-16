@@ -1,0 +1,28 @@
+div.NotificationCard {
+  position: relative;
+  padding: 0.5vmax;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+div.NotificationCard div.Bell {
+  position: absolute;
+  right: 0.5vmax;
+  top: 0.5vmax;
+}
+div.NotificationCard div.Avatar img {
+  width: 4vmax;
+  height: 4vmax;
+  margin-right: 0.5vmax;
+  border-radius: 100%;
+  vertical-align: top;
+  border: 0.2vmax solid #3f7997;
+}
+div.NotificationCard div.Text {
+  flex: 1;
+}
+div.NotificationCard div.Text h1 {
+  margin: 0;
+}
+div.NotificationCard div.Text p {
+  margin: 0;
+}

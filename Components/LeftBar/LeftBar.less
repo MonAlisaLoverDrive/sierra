@@ -1,0 +1,69 @@
+@import '../../css/colors';
+@import '../../css/queries';
+
+div.LeftBar
+{
+    position:       fixed;
+    left:           0;
+    top:            0;
+    z-index:        50;
+    
+    display:        flex;
+    flex-direction: column;
+    
+    height:         100vh;
+    width:          5vw;
+    
+    background:     @black-ice;
+    transition:     all 1s, height 1ms;
+    
+    border-right:   0.5vw solid @steel-gray;
+    overflow:       hidden;
+    
+    color:          @snow-white;
+    font-size:      25em;
+    
+    @media @screen-lg
+    {
+        width: 25vw;
+    }
+    
+    &.open
+    {
+        width: 100vw;
+        
+        @media @screen-md
+        {
+            width: 50vw;
+        }
+        
+        @media @screen-lg
+        {
+            width:      25vw;
+            box-shadow: none;
+        }
+    }
+    
+    div.Menu
+    {
+        border-bottom: 0.25vh solid @steel-gray;
+        padding: 0.5vmax;
+    }
+    
+    div.Notifications
+    {
+        padding: 0.5vmax;
+        flex:       1;
+    }
+}
+
+div.LeftBarPlaceholder
+{
+    height: 100vh;
+    width:  5.5vw;
+    
+    @media @screen-lg
+    {
+        width: 25.5vw;
+    }
+}

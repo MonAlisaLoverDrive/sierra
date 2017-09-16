@@ -1,0 +1,52 @@
+div.LeftBar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 5vw;
+  background: #2c2d36;
+  transition: all 1s, height 1ms;
+  border-right: 0.5vw solid #5c6576;
+  overflow: hidden;
+  color: #ebeef0;
+  font-size: 25em;
+}
+@media screen and (min-width: 1280px) and (min-device-width: 1280px) {
+  div.LeftBar {
+    width: 25vw;
+  }
+}
+div.LeftBar.open {
+  width: 100vw;
+}
+@media screen and (min-width: 720px) and (min-device-width: 720px) {
+  div.LeftBar.open {
+    width: 50vw;
+  }
+}
+@media screen and (min-width: 1280px) and (min-device-width: 1280px) {
+  div.LeftBar.open {
+    width: 25vw;
+    box-shadow: none;
+  }
+}
+div.LeftBar div.Menu {
+  border-bottom: 0.25vh solid #5c6576;
+  padding: 0.5vmax;
+}
+div.LeftBar div.Notifications {
+  padding: 0.5vmax;
+  flex: 1;
+}
+div.LeftBarPlaceholder {
+  height: 100vh;
+  width: 5.5vw;
+}
+@media screen and (min-width: 1280px) and (min-device-width: 1280px) {
+  div.LeftBarPlaceholder {
+    width: 25.5vw;
+  }
+}

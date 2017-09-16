@@ -1,0 +1,1 @@
+window.Sierra.Component.Create('NotificationCard', 'Components/NotificationCard/NotificationCard.html', 'Components/NotificationCard/NotificationCard.css');
