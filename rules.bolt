@@ -4,22 +4,29 @@ path /properties {
 
 /* Users
 = = = = = = */
-    path /users/{uid} is User {
-      read() { auth != null && uid == auth.uid }
-      write() { auth != null && uid == auth.uid }
+    path /users/{username} is User {
+      read() { auth != null && this.child('uid').val() == auth.uid }
+      write() { auth != null && this.child('uid').val() == auth.uid }
+      index() {'uid'}
     }
 
-    path /users/{uid}/public_data is UserPublicData {
+    path /users/{username}/uid {
+        create() { auth != null && this.val() == auth.uid }
+        read() { auth != null && this.val() == auth.uid }
+    }
+
+    path /users/{username}/public_data is UserPublicData {
       read() {true}
     }
 
-    path /users/{uid}/private_data/partylist {
+    path /users/{username}/private_data/partylist {
         index() {'date'}
     }
 
     type User {
         private_data: UserPrivateData,
-        public_data: UserPublicData
+        public_data: UserPublicData,
+        uid: String
     }
 
     type UserPrivateData {
@@ -39,6 +46,14 @@ path /properties {
         date: Number,
         text: String,
         source: String
+    }
+
+    path /userlist {
+        read() {true}
+    }
+
+    path /userlist/{uid} {
+        write() {auth != null && uid == auth.uid}
     }
 
 /* Parties

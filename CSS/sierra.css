@@ -1,40 +1,90 @@
+.TextPitchBlack {
+  color: #1f2026;
+}
+.TextBlackIce {
+  color: #2c2d36;
+}
+.TextSteelGray {
+  color: #5c6576;
+}
+.TextIce {
+  color: #aac8dc;
+}
+.TextDeepWater {
+  color: #3f7997;
+}
+.TextSnowWhite {
+  color: #ebeef0;
+}
+.TextIceWhite {
+  color: #dcdfe1;
+}
+.TextDangerRed {
+  color: #cc3629;
+}
+.TextSafeGreen {
+  color: #a9dcc2;
+}
+.TextXSm {
+  font-size: 1.2vh;
+}
+.TextSm {
+  font-size: 1.6vh;
+}
+.TextMd {
+  font-size: 2.0vh;
+}
+.TextLg {
+  font-size: 2.5vh;
+}
+.TextXLg {
+  font-size: 3.0vh;
+}
+.TextCenter {
+  text-align: center;
+}
+.Margin1 {
+  margin: 0.25vmax;
+}
+.Margin2 {
+  margin: 0.5vmax;
+}
+.MarginTop1 {
+  margin-top: 0.25vmax;
+}
+.MarginTop2 {
+  margin-top: 0.5vmax;
+}
+.Circle {
+  border-radius: 100%;
+}
 body {
   color: #2c2d36;
   background: #dcdfe1;
   padding: 0;
   margin: 0;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   font-family: sans-serif;
   font-size: 0.1vh;
+  overflow: hidden;
+}
+BodyContent {
+  display: flex;
 }
 div.page {
+  height: 100vh;
   position: relative;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 div.page div.content {
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 div.grid {
   margin: 0.5vmax;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 div.grid div.tile {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
@@ -44,9 +94,7 @@ div.grid div.tile:after {
   content: '';
 }
 div.grid div.tile div.tile-content {
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   margin: 0.5vmax;
   width: auto;
   height: auto;

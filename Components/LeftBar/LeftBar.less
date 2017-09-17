@@ -12,7 +12,7 @@ div.LeftBar
     flex-direction: column;
     
     height:         100vh;
-    width:          5vw;
+    width:          3em;
     
     background:     @black-ice;
     transition:     all 1s, height 1ms;
@@ -21,7 +21,6 @@ div.LeftBar
     overflow:       hidden;
     
     color:          @snow-white;
-    font-size:      25em;
     
     @media @screen-lg
     {
@@ -47,7 +46,44 @@ div.LeftBar
     div.Menu
     {
         border-bottom: 0.25vh solid @steel-gray;
-        padding: 0.5vmax;
+        
+        div.MenuItem
+        {
+            padding: 0.5em;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background .5s;
+            
+            div.Icon
+            {
+                margin-right: 0.5em;
+                height: 1em;
+                font-size: 2em;
+                
+                img
+                {
+                    height: 1em;
+                }
+            }
+            
+            div.Caption
+            {
+                line-height: 2em;
+                height: 2em;
+            }
+            
+            &:hover
+            {
+                background: rgba(0, 0, 0, 0.5);
+            }
+        }
+    
+        &.Dark
+        {
+            color: @steel-gray;
+            background: @pitch-black;
+        }
     }
     
     div.Notifications

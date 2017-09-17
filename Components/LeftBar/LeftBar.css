@@ -1,3 +1,63 @@
+.TextPitchBlack {
+  color: #1f2026;
+}
+.TextBlackIce {
+  color: #2c2d36;
+}
+.TextSteelGray {
+  color: #5c6576;
+}
+.TextIce {
+  color: #aac8dc;
+}
+.TextDeepWater {
+  color: #3f7997;
+}
+.TextSnowWhite {
+  color: #ebeef0;
+}
+.TextIceWhite {
+  color: #dcdfe1;
+}
+.TextDangerRed {
+  color: #cc3629;
+}
+.TextSafeGreen {
+  color: #a9dcc2;
+}
+.TextXSm {
+  font-size: 1.2vh;
+}
+.TextSm {
+  font-size: 1.6vh;
+}
+.TextMd {
+  font-size: 2.0vh;
+}
+.TextLg {
+  font-size: 2.5vh;
+}
+.TextXLg {
+  font-size: 3.0vh;
+}
+.TextCenter {
+  text-align: center;
+}
+.Margin1 {
+  margin: 0.25vmax;
+}
+.Margin2 {
+  margin: 0.5vmax;
+}
+.MarginTop1 {
+  margin-top: 0.25vmax;
+}
+.MarginTop2 {
+  margin-top: 0.5vmax;
+}
+.Circle {
+  border-radius: 100%;
+}
 div.LeftBar {
   position: fixed;
   left: 0;
@@ -6,13 +66,12 @@ div.LeftBar {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 5vw;
+  width: 3em;
   background: #2c2d36;
   transition: all 1s, height 1ms;
   border-right: 0.5vw solid #5c6576;
   overflow: hidden;
   color: #ebeef0;
-  font-size: 25em;
 }
 @media screen and (min-width: 1280px) and (min-device-width: 1280px) {
   div.LeftBar {
@@ -35,7 +94,32 @@ div.LeftBar.open {
 }
 div.LeftBar div.Menu {
   border-bottom: 0.25vh solid #5c6576;
-  padding: 0.5vmax;
+}
+div.LeftBar div.Menu div.MenuItem {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background .5s;
+}
+div.LeftBar div.Menu div.MenuItem div.Icon {
+  margin-right: 0.5em;
+  height: 1em;
+  font-size: 2em;
+}
+div.LeftBar div.Menu div.MenuItem div.Icon img {
+  height: 1em;
+}
+div.LeftBar div.Menu div.MenuItem div.Caption {
+  line-height: 2em;
+  height: 2em;
+}
+div.LeftBar div.Menu div.MenuItem:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+div.LeftBar div.Menu.Dark {
+  color: #5c6576;
+  background: #1f2026;
 }
 div.LeftBar div.Notifications {
   padding: 0.5vmax;

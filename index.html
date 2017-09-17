@@ -31,10 +31,13 @@
         <!--Internal scripts-->
         <script src="JS/Main.js"></script>
         <script src="JS/ComponentManager.js"></script>
+        <script src="JS/Lang.js"></script>
+        <script src="JS/LangEnglish.js"></script>
 
         <!--Components-->
         <script src="Components/LeftBar/LeftBar.js"></script>
         <script src="Components/NotificationCard/NotificationCard.js"></script>
+        <script src="Pages/NotLoggedIn/NotLoggedIn.js"></script>
 
         <script>
 
@@ -46,16 +49,14 @@
         <!--Firebase-->
         <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
         <script>
-            // Initialize Firebase
-            var config = {
+            firebase.initializeApp({
                 apiKey: "AIzaSyCG9waympHQGg_8sP177N4bqMJQjyP_hZA",
                 authDomain: "partyfyme-dd05c.firebaseapp.com",
                 databaseURL: "https://partyfyme-dd05c.firebaseio.com",
                 projectId: "partyfyme-dd05c",
                 storageBucket: "partyfyme-dd05c.appspot.com",
                 messagingSenderId: "924187375131"
-            };
-            firebase.initializeApp(config);
+            });
         </script>
     </body>
 </html>

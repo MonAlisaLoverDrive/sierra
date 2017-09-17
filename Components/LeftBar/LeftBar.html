@@ -1,14 +1,56 @@
-<div class="LeftBar" id="LeftBar">
+<div class="LeftBar TextLg" id="LeftBar">
+
+
     <div class="Menu">
 
+        <div class="MenuItem">
+            <div class="Icon">
+                <img src="Assets/Images/test.jpg" class="Circle">
+            </div>
 
+            <div class="Caption">
+                {{Sierra.user.data.public_data.name}}
+            </div>
+        </div>
+
+        <div class="MenuItem">
+            <div class="Icon">
+                <img src="Assets/Icons/shoe.png">
+            </div>
+
+            <div class="Caption">
+                {{Lang.parties}}
+            </div>
+        </div>
+
+        <div class="MenuItem">
+            <div class="Icon">
+                <img src="Assets/Icons/polaroid.png">
+            </div>
+
+            <div class="Caption">
+                {{Lang.photos}}
+            </div>
+        </div>
 
     </div>
 
     <div class="Notifications">
-        <NotificationCard></NotificationCard>
-        <div class="TextMd TextCenter Margin2">Older</div>
-        <NotificationCard></NotificationCard>
+
+    </div>
+
+    <div class="Menu Dark">
+
+        <div class="MenuItem">
+            <div class="Icon">
+                <img src="Assets/Icons/gear.png">
+            </div>
+
+            <div class="Caption">
+                {{Lang.settings}}
+            </div>
+        </div>
+
     </div>
 </div>
 

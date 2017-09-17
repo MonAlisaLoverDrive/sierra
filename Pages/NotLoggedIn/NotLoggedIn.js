@@ -1,0 +1,1 @@
+window.Sierra.Component.Create('NotLoggedIn', 'Pages/NotLoggedIn/NotLoggedIn.html', 'Pages/NotLoggedIn/NotLoggedIn.css');

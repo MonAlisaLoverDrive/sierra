@@ -4,8 +4,8 @@
       ".read": "true"
     },
     "users": {
-      "$uid": {
-        ".validate": "newData.hasChildren(['private_data', 'public_data'])",
+      "$username": {
+        ".validate": "newData.hasChildren(['private_data', 'public_data', 'uid'])",
         "private_data": {
           ".validate": "newData.hasChildren(['email'])",
           "email": {
@@ -43,10 +43,24 @@
           },
           ".read": "true"
         },
+        "uid": {
+          ".validate": "newData.isString()",
+          ".write": "data.val() == null && auth != null && newData.val() == auth.uid",
+          ".read": "auth != null && data.val() == auth.uid"
+        },
         "$other": {
           ".validate": "false"
         },
-        ".read": "auth != null && $uid == auth.uid",
+        ".read": "auth != null && data.child('uid').val() == auth.uid",
+        ".write": "auth != null && newData.child('uid').val() == auth.uid",
+        ".indexOn": [
+          "uid"
+        ]
+      }
+    },
+    "userlist": {
+      ".read": "true",
+      "$uid": {
         ".write": "auth != null && $uid == auth.uid"
       }
     },
