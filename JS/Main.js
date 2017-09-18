@@ -11,6 +11,7 @@ Sierra.Load = () =>
         console.log(window.Sierra.ComponentManager.components);
         window.Sierra.body.html(Sierra.Component.Parse(window.Sierra.body.html()));
         $(Sierra).trigger('loaded');
+        console.log('Loaded.');
     }
 };
 
