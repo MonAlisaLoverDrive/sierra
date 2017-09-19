@@ -1,26 +1,27 @@
 window.Sierra = {};
 Sierra.loadCounter = 0;
-Sierra.body = $('body bodycontent');
+Sierra.body = NW.Dom.first('body bodycontent');
 Sierra.user = {};
 
+Sierra.onLoad = new QuickEvent();
 Sierra.Load = () =>
 {
     Sierra.loadCounter++;
     if (Sierra.loadCounter > 1)
     {
         console.log(window.Sierra.ComponentManager.components);
-        window.Sierra.body.html(Sierra.Component.Parse(window.Sierra.body.html()));
-        $(Sierra).trigger('loaded');
+        window.Sierra.body.innerHTML = Sierra.Component.Parse(window.Sierra.body.innerHTML);
         console.log('Loaded.');
+        Sierra.onLoad.trigger();
     }
 };
 
 Sierra.LoginSuccess = () =>
 {
-    firebase.database().ref('userlist/' + firebase.auth().currentUser.uid).once('value').then( (data) =>
+    firebase.database().ref('userlist/' + firebase.auth().currentUser.uid).once('value').then((data) =>
     {
         let username = data.val();
-        firebase.database().ref('users/' + username).once('value').then( (data) =>
+        firebase.database().ref('users/' + username).once('value').then((data) =>
         {
             Sierra.user.username = username;
             Sierra.user.id = firebase.auth().currentUser.uid;
@@ -46,4 +47,30 @@ Sierra.SignUpSuccess = (data) =>
         }
     });
     firebase.database().ref('userlist/' + firebase.auth().currentUser.uid).set(data.username);
+};
+
+// Misc
+// = = = = = = = =
+Sierra.readFile = (path, callback) =>
+{
+    return new Promise(function (resolve, reject)
+    {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4)
+            {
+                if (xhr.status === 200)
+                {
+                    resolve(xhr.responseText);
+                }
+                else
+                {
+                    reject(xhr);
+                }
+            }
+        };
+        xhr.open("GET", path);
+        xhr.send();
+    });
 };

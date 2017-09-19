@@ -29,17 +29,17 @@ Sierra.Component.Create = (selector, templateURL = undefined, styleURL = undefin
     component.__proto__ = window.Sierra.Component;
     if (templateURL !== undefined)
     {
-        $.get(templateURL, (data) =>
+        Sierra.readFile(templateURL).then((data) =>
         {
             component.template = data;
             Sierra.ComponentManager.components.push(component);
-        });
+        })
     }
     else
         Sierra.ComponentManager.components.push(component);
 
     if (styleURL !== undefined)
-        $('head').append('<link rel="stylesheet" href="' + styleURL + '">');
+        NW.Dom.first('head').innerHTML += '<link rel="stylesheet" href="' + styleURL + '">';
     else
-        $('head').append(selector.style);
+        NW.Dom.first('head').innerHTML += selector.style;
 };
