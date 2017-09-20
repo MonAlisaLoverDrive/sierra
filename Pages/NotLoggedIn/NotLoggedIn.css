@@ -1,8 +1,147 @@
-div.NotLoggedIn
-{
-    height:           100%;
-    background-size:  cover;
-    background-image: url('../../Assets/Images/background.jpg');
-
-    
+.TextHeader {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.TextPitchBlack {
+  color: #1f2026;
+}
+.TextBlackIce {
+  color: #2c2d36;
+}
+.TextSteelGray {
+  color: #5c6576;
+}
+.TextIce {
+  color: #aac8dc;
+}
+.TextDeepWater {
+  color: #3f7997;
+}
+.TextSnowWhite {
+  color: #ebeef0;
+}
+.TextIceWhite {
+  color: #dcdfe1;
+}
+.TextDangerRed {
+  color: #cc3629;
+}
+.TextSafeGreen {
+  color: #a9dcc2;
+}
+.TextXSm {
+  font-size: 1.2vh;
+}
+.TextSm {
+  font-size: 1.6vh;
+}
+.TextMd {
+  font-size: 2.0vh;
+}
+.TextLg {
+  font-size: 2.5vh;
+}
+.TextXLg {
+  font-size: 3.0vh;
+}
+.TextXXLg {
+  font-size: 6.0vh;
+}
+.TextXXXLg {
+  font-size: 12.0vh;
+}
+.TextByWidth {
+  font-size: 16px;
+  white-space: nowrap;
+}
+.TextBold {
+  font-weight: bold;
+}
+.TextCenter {
+  text-align: center;
+}
+.TextJustify {
+  text-align: justify;
+}
+.Margin1 {
+  margin: 0.25vmax;
+}
+.Margin2 {
+  margin: 0.5vmax;
+}
+.MarginTop1 {
+  margin-top: 0.25vmax;
+}
+.MarginTop2 {
+  margin-top: 0.5vmax;
+}
+.Circle {
+  border-radius: 100%;
+}
+div.NotLoggedIn {
+  color: #dcdfe1;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image: url('../../Assets/Images/background.jpg');
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2.5vmax;
+}
+div.NotLoggedIn div.Description {
+  width: 100%;
+  margin-right: 2.5vmax;
+}
+@media screen and (min-width: 720px) and (min-device-width: 720px) {
+  div.NotLoggedIn div.Description {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1280px) and (min-device-width: 1280px) {
+  div.NotLoggedIn div.Description {
+    width: 65%;
+  }
+}
+div.NotLoggedIn div.Form {
+  flex: 1;
+}
+div.NotLoggedIn div.Form input {
+  color: #1f2026;
+  background: #ebeef0;
+  font-size: 3vh;
+  width: 100%;
+  padding: 1vmax;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  margin-top: 0.5vmax;
+  margin-bottom: 1vmax;
+  border-radius: 0.5vmax;
+}
+div.NotLoggedIn div.Form button {
+  font-size: 3vh;
+  width: 100%;
+  border-radius: 0.5vmax;
+  background: #3f7997;
+  color: #ebeef0;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  padding: 1vmax;
+  margin-top: 1vmax;
+  margin-bottom: 1vmax;
+}
+div.NotLoggedIn div.Form button.Facebook {
+  color: #ebeef0;
+  background: #3B5998;
+}
+div.NotLoggedIn div.Form a {
+  color: #ebeef0;
+  text-decoration: none;
+  transition: color .5s;
+}
+div.NotLoggedIn div.Form a:hover {
+  color: #aac8dc;
 }

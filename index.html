@@ -7,6 +7,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
               integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
               crossorigin="anonymous">
+
+        <!--Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
     </head>
     <body>
         <BodyContent>
@@ -25,11 +28,12 @@
 
 
         <!--External scripts-->
-        <script src="JS/libs/nwmatcher.js"></script>
+        <script src="JS/jquery-3.2.1.js"></script>
         <script src="JS/libs/QuickEvent.js"></script>
 
         <!--Internal scripts-->
         <script src="JS/Main.js"></script>
+        <script src="JS/TextByWidth.js"></script>
         <script src="JS/ComponentManager.js"></script>
         <script src="JS/Lang.js"></script>
         <script src="JS/LangEnglish.js"></script>
@@ -40,10 +44,7 @@
         <script src="Pages/NotLoggedIn/NotLoggedIn.js"></script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', () =>
-            {
-                setTimeout(Sierra.Load(), 50);
-            });
+            console.log(Sierra.ComponentManager.components);
 
         </script>
 

@@ -1,6 +1,6 @@
-window.Sierra.Component = {};
-
-window.Sierra.ComponentManager = {components: []};
+Sierra.Component = {};
+Sierra.ComponentManager = {components: []};
+Sierra.ComponentManager.pages = {};
 
 Sierra.Component.Parse = function (html)
 {
@@ -25,6 +25,9 @@ Sierra.Component.ToHTML = function ()
 
 Sierra.Component.Create = (selector, templateURL = undefined, styleURL = undefined) =>
 {
+    if(Sierra.ComponentManager.components.loaded === undefined)
+        Sierra.ComponentManager.components.loaded = 0;
+
     let component = {selector: selector};
     component.__proto__ = window.Sierra.Component;
     if (templateURL !== undefined)
@@ -32,14 +35,26 @@ Sierra.Component.Create = (selector, templateURL = undefined, styleURL = undefin
         Sierra.readFile(templateURL).then((data) =>
         {
             component.template = data;
-            Sierra.ComponentManager.components.push(component);
+            Sierra.ComponentManager.components[component.selector] = component;
+            Sierra.ComponentManager.components.loaded++;
+
+            if (Sierra.ComponentManager.components.loaded === Sierra.ComponentManager.components.length)
+                Sierra.Load();
         })
     }
     else
-        Sierra.ComponentManager.components.push(component);
+    {
+        Sierra.ComponentManager.components.loaded++;
+    }
+
+    Sierra.ComponentManager.components.push(component);
+    Sierra.ComponentManager.components[component.selector] = component;
+
 
     if (styleURL !== undefined)
-        NW.Dom.first('head').innerHTML += '<link rel="stylesheet" href="' + styleURL + '">';
+        $('head').append('<link rel="stylesheet" href="' + styleURL + '">');
     else
-        NW.Dom.first('head').innerHTML += selector.style;
+        $('head').append(selector.style);
+
+    return component;
 };

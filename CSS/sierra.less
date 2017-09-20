@@ -1,6 +1,12 @@
 @import 'colors';
 @import 'queries';
 
+html
+{
+    width: 100vw;
+    height: 100vh;
+}
+
 body
 {
     color:       @black-ice;
@@ -9,15 +15,19 @@ body
     padding:     0;
     margin:      0;
     
-    font-family: sans-serif;
-    font-size:   0.1vh;
+    *
+    {
+        font-family: 'Raleway', sans-serif;
+    }
     
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 BodyContent
 {
     display: flex;
+    width: 100vw;
+    height: 100vh;
 }
 
 div.page
@@ -29,6 +39,8 @@ div.page
     
     div.content
     {
+        max-width: 100vw;
+        width: 100%;
         flex: 1;
     }
 }

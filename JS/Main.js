@@ -1,16 +1,24 @@
 window.Sierra = {};
 Sierra.loadCounter = 0;
-Sierra.body = NW.Dom.first('body bodycontent');
+Sierra.body = $('body bodycontent');
 Sierra.user = {};
 
 Sierra.onLoad = new QuickEvent();
 Sierra.Load = () =>
 {
     Sierra.loadCounter++;
-    if (Sierra.loadCounter > 1)
+    if (Sierra.loadCounter === 1)
+    {
+        setTimeout(() =>
+        {
+            $('div.page div.content').html(Sierra.Component.Parse(Sierra.ComponentManager.components['NotLoggedIn'].template));
+            window.onresize();
+        }, 50);
+    }
+    else if (Sierra.loadCounter === 2)
     {
         console.log(window.Sierra.ComponentManager.components);
-        window.Sierra.body.innerHTML = Sierra.Component.Parse(window.Sierra.body.innerHTML);
+        window.Sierra.body.html(Sierra.Component.Parse(window.Sierra.body.innerHTML));
         console.log('Loaded.');
         Sierra.onLoad.trigger();
     }

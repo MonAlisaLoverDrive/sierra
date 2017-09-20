@@ -1,3 +1,36 @@
 <div class="NotLoggedIn">
-    <span class="TextXLg">Right here, right now</span>
+    <div class="Description">
+        <span class="TextByWidth TextSnowWhite TextHeader">{{Lang.Motd()}}</span>
+        <span class="TextByWidth TextJustify TextSnowWhite">
+            {{Lang.data.notLoggedInDescription}}
+        </span>
+    </div>
+
+    <div class="Form">
+
+        <form>
+
+            <span class="TextXLg">E-mail</span>
+            <input id="Email" placeholder={{Lang.Random('exampleEmails')}}>
+            <span class="TextXLg">Password</span>
+            <input id="Password" placeholder={{Lang.Random('examplePasswords')}}>
+
+            <div class="SignUp">
+                <span class="TextXLg">Display name</span>
+                <input id="Name" placeholder={{Lang.Random('exampleNames')}}>
+                <span class="TextXLg">Username</span>
+                <input id="Username" placeholder={{Lang.Random('exampleUsernames')}}>
+
+                <button class="Facebook">Continue with Facebook <i class="fa fa-facebook" aria-hidden="true"></i>
+                </button>
+            </div>
+            <button>Continue</button>
+            <div class="TextCenter">
+                <a href="#" id="SwitchToSignIn" class="TextMd" onclick="Sierra.ComponentManager.pages.NotLoggedIn.SwitchToSignIn()">Already have an account?</a><br>
+                <a href="#" id="SwitchToSignUp" class="TextMd" onclick="Sierra.ComponentManager.pages.NotLoggedIn.SwitchToSignUp()">Do not have an account?</a>
+            </div>
+
+        </form>
+
+    </div>
 </div>
