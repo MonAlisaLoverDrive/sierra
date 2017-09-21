@@ -78,6 +78,9 @@
 .Circle {
   border-radius: 100%;
 }
+.HiddenDown {
+  opacity: 0;
+}
 html {
   width: 100vw;
   height: 100vh;

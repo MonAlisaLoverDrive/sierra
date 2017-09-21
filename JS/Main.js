@@ -11,14 +11,12 @@ Sierra.Load = () =>
     {
         setTimeout(() =>
         {
-            $('div.page div.content').html(Sierra.Component.Parse(Sierra.ComponentManager.components['NotLoggedIn'].template));
-            window.onresize();
+            Sierra.LoadPage('NotLoggedIn');
         }, 50);
     }
     else if (Sierra.loadCounter === 2)
     {
-        console.log(window.Sierra.ComponentManager.components);
-        window.Sierra.body.html(Sierra.Component.Parse(window.Sierra.body.innerHTML));
+        Sierra.body.html(Sierra.Component.Parse(Sierra.body.html()));
         console.log('Loaded.');
         Sierra.onLoad.trigger();
     }
@@ -55,6 +53,13 @@ Sierra.SignUpSuccess = (data) =>
         }
     });
     firebase.database().ref('userlist/' + firebase.auth().currentUser.uid).set(data.username);
+};
+
+Sierra.LoadPage = (page) =>
+{
+    $('div.page div.content').html(Sierra.Component.Parse(Sierra.ComponentManager.pages[page].template));
+    Sierra.ComponentManager.pages[page].OnLoad();
+    window.onresize();
 };
 
 // Misc

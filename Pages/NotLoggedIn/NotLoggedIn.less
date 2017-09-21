@@ -72,12 +72,25 @@ div.NotLoggedIn
             padding:       1vmax;
             margin-top: 1vmax;
             margin-bottom: 1vmax;
+            
+            cursor: pointer;
+            transition: background .5s, color .5s;
+            
+            &:hover
+            {
+                color: @deep-water;
+                background: @ice;
+            }
         }
         
-        button.Facebook
+        button.Instagram
         {
-            color: @snow-white;
-            background: #3B5998;
+            background: #c13584;
+    
+            &:hover
+            {
+                background: @ice;
+            }
         }
         
         a
@@ -90,6 +103,11 @@ div.NotLoggedIn
         a:hover
         {
             color: @ice;
+        }
+        
+        div.SignUp
+        {
+            transition: 1s;
         }
     }
 }

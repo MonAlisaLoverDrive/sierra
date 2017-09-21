@@ -78,6 +78,9 @@
 .Circle {
   border-radius: 100%;
 }
+.HiddenDown {
+  opacity: 0;
+}
 div.LeftBar {
   position: fixed;
   left: 0;

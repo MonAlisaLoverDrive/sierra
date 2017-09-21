@@ -16,8 +16,8 @@ window.onresize = function (event)
         }
     });
 
-    $('.HiddenUp').each(function()
+    $('.HiddenDown').each(function()
     {
-        $(this).css('margin-top', -$(this).height()+'px');
+        $(this).css('margin-bottom', -$(this).height()+'px');
     });
 };

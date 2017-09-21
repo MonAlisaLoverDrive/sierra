@@ -5,10 +5,8 @@
     NotLoggedIn.SwitchToSignIn = () =>
     {
         let $signUp = $('div.NotLoggedIn div.SignUp');
-        $signUp.animate({
-            'margin-top': -$signUp.height() + 'px',
-            'opacity': 0
-        }, 1000, ()=>{$signUp.addClass('HiddenUp')});
+        $signUp.css('margin-bottom', -$signUp.height() + 'px');
+        $signUp.addClass('HiddenDown');
         $signUp.css('pointer-events', 'none');
 
         $("div.NotLoggedIn #SwitchToSignUp").fadeIn(500);
@@ -18,14 +16,17 @@
     NotLoggedIn.SwitchToSignUp = () =>
     {
         let $signUp = $('div.NotLoggedIn div.SignUp');
-        $signUp.animate({
-            'margin-top': 0,
-            'opacity': 1
-        }, 1000, ()=>{$signUp.removeClass('HiddenUp')});
+        $signUp.css('margin-bottom', 0);
+        $signUp.removeClass('HiddenDown');
         $signUp.css('pointer-events', 'auto');
 
         $("div.NotLoggedIn #SwitchToSignIn").fadeIn(500);
         $("div.NotLoggedIn #SwitchToSignUp").fadeOut(500);
+    };
+
+    NotLoggedIn.OnLoad = () =>
+    {
+        $("div.NotLoggedIn #SwitchToSignUp").hide();
     };
 
     Sierra.ComponentManager.pages.NotLoggedIn = NotLoggedIn;

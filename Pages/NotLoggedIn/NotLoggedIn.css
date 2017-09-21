@@ -78,6 +78,9 @@
 .Circle {
   border-radius: 100%;
 }
+.HiddenDown {
+  opacity: 0;
+}
 div.NotLoggedIn {
   color: #dcdfe1;
   box-sizing: border-box;
@@ -132,10 +135,18 @@ div.NotLoggedIn div.Form button {
   padding: 1vmax;
   margin-top: 1vmax;
   margin-bottom: 1vmax;
+  cursor: pointer;
+  transition: background .5s, color .5s;
 }
-div.NotLoggedIn div.Form button.Facebook {
-  color: #ebeef0;
-  background: #3B5998;
+div.NotLoggedIn div.Form button:hover {
+  color: #3f7997;
+  background: #aac8dc;
+}
+div.NotLoggedIn div.Form button.Instagram {
+  background: #c13584;
+}
+div.NotLoggedIn div.Form button.Instagram:hover {
+  background: #aac8dc;
 }
 div.NotLoggedIn div.Form a {
   color: #ebeef0;
@@ -144,4 +155,7 @@ div.NotLoggedIn div.Form a {
 }
 div.NotLoggedIn div.Form a:hover {
   color: #aac8dc;
+}
+div.NotLoggedIn div.Form div.SignUp {
+  transition: 1s;
 }
