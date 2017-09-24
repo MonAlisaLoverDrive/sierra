@@ -9,12 +9,12 @@ div.NotLoggedIn
     height:           100%;
     background-size:  cover;
     background-image: url('../../Assets/Images/background.jpg');
-    
+
     display:          flex;
     flex-wrap:        wrap;
     align-items:      center;
     padding:          2.5vmax;
-    
+
     div.Description
     {
         width:        100%;
@@ -22,89 +22,158 @@ div.NotLoggedIn
         {
             width: 50%;
         }
-        
+
         @media @screen-lg
         {
             width: 65%;
         }
-        
+
         margin-right: 2.5vmax;
     }
-    
+
     div.Form
     {
         flex: 1;
         input
         {
-            color: @pitch-black;
-            background: @snow-white;
-            
+            color:         @pitch-black;
+            background:    @snow-white;
+
             font-size:     3vh;
-            
+
             width:         100%;
             padding:       1vmax;
             box-sizing:    border-box;
-            
+
             border:        none;
             outline:       none;
-    
-            margin-top: 0.5vmax;
+
+            margin-top:    0.5vmax;
             margin-bottom: 1vmax;
-    
+
             border-radius: 0.5vmax;
-        }
-        
-        button
-        {
-            font-size:  3vh;
-            
-            width:      100%;
-            
-            border-radius: 0.5vmax;
-            
-            background: @deep-water;
-            color:      @snow-white;
-            border:     none;
-            outline:    none;
-            
-            font-weight: bold;
-    
-            padding:       1vmax;
-            margin-top: 1vmax;
-            margin-bottom: 1vmax;
-            
-            cursor: pointer;
-            transition: background .5s, color .5s;
-            
-            &:hover
+
+            transition:    background .5s;
+
+            &#Password
             {
-                color: @deep-water;
-                background: @ice;
+                margin-right: -2em;
+            }
+
+            &.Alert
+            {
+                background: @danger-red;
+
+                &::placeholder
+                {
+                    color: @snow-white;
+                }
+            }
+
+            &::placeholder
+            {
+                color:      @steel-gray;
+                transition: .5s;
             }
         }
-        
+
+        span
+        {
+            transition: .5s;
+
+            &.Alert
+            {
+                color: @danger-red;
+            }
+        }
+
+        span.Eye
+        {
+            color: @pitch-black;
+            font-size: 3vh;
+
+            cursor: pointer;
+
+            &.Active
+            {
+                color: @ice;
+            }
+        }
+
+        button
+        {
+            font-size:     3vh;
+
+            width:         100%;
+
+            border-radius: 0.5vmax;
+
+            background:    @deep-water;
+            color:         @snow-white;
+            border:        none;
+            outline:       none;
+
+            font-weight:   bold;
+
+            padding:       1vmax;
+            margin-top:    1vmax;
+            margin-bottom: 1vmax;
+
+            cursor:        pointer;
+            transition:    background .5s, color .5s;
+
+            &:hover
+            {
+                color:      @deep-water;
+                background: @ice;
+            }
+
+            &.Loading
+            {
+                animation-name: loading;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes loading
+            {
+                0%
+                {
+                    background-color: @deep-water
+                }
+                50%
+                {
+                    background-color: @ice;
+                }
+                100%
+                {
+                    background-color: @deep-water;
+                }
+            }
+        }
+
         button.Instagram
         {
             background: #c13584;
-    
+
             &:hover
             {
                 background: @ice;
             }
         }
-        
+
         a
         {
-            color: @snow-white;
+            color:           @snow-white;
             text-decoration: none;
-            transition: color .5s;
+            transition:      .5s;
         }
-        
+
         a:hover
         {
             color: @ice;
         }
-        
+
         div.SignUp
         {
             transition: 1s;

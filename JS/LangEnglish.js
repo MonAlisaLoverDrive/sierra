@@ -15,11 +15,11 @@ Lang.data = {
                              Cras diam tortor, suscipit sed sodales sit amet,<br>
                              feugiat tincidunt felis.`,
 
-    exampleEmails: ['email@email.com', 'you@rock.com', 'chillededshoes@party.com'],
+    exampleEmails: ['email@email.com', 'you@rock.com', 'betono@meshalka.com'],
     examplePasswords: ['my_password_is_not_password',
                         'LeNInisALIVE',
                         'BETonOmeShalka',
                         'qwerty123'],
     exampleNames: ['Alice', 'Bob', 'Dude', 'Zhetiotken'],
-    exampleUsernames: ['partyman322', 'nagibator3000', 'drunken.sailor', 'rockarolla']
+    exampleUsernames: ['partyman322', 'nagibator3000', 'drunken_sailor', 'rockarolla']
 };

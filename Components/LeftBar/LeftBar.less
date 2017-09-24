@@ -1,5 +1,5 @@
-@import '../../css/colors';
-@import '../../css/queries';
+@import '../../CSS/colors';
+@import '../../CSS/queries';
 
 div.LeftBar
 {
@@ -21,7 +21,11 @@ div.LeftBar
     overflow:       hidden;
     
     color:          @snow-white;
-    
+
+    animation-name: appear;
+    animation-duration: 1s;
+    animaion-fill-mode: forwards;
+
     @media @screen-lg
     {
         width: 25vw;
@@ -90,6 +94,21 @@ div.LeftBar
     {
         padding: 0.5vmax;
         flex:       1;
+    }
+
+
+    @keyframes appear
+    {
+        from
+        {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        to
+        {
+            transform: none;
+            opacity: 1;
+        }
     }
 }
 

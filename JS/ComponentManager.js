@@ -28,6 +28,7 @@ Sierra.Component.Create = (selector, templateURL = undefined, styleURL = undefin
     if(Sierra.ComponentManager.components.loaded === undefined)
         Sierra.ComponentManager.components.loaded = 0;
 
+    selector = selector.toLowerCase();
     let component = {selector: selector};
     component.__proto__ = window.Sierra.Component;
     if (templateURL !== undefined)

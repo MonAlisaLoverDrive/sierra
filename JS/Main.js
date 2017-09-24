@@ -16,7 +16,11 @@ Sierra.Load = () =>
     }
     else if (Sierra.loadCounter === 2)
     {
-        Sierra.body.html(Sierra.Component.Parse(Sierra.body.html()));
+        Sierra.LoadPage('Parties');
+        setTimeout(() =>
+        {
+            Sierra.body.html(Sierra.Component.Parse(Sierra.body.html()));
+        }, 1000);
         console.log('Loaded.');
         Sierra.onLoad.trigger();
     }
@@ -34,6 +38,7 @@ Sierra.LoginSuccess = () =>
             Sierra.user.data = data.val();
             Sierra.user.ref = firebase.database().ref('users/' + username);
             Sierra.Load();
+
         });
     });
 };
@@ -43,7 +48,6 @@ Sierra.SignUpSuccess = (data) =>
     firebase.database().ref('users/' + data.username).set({
         uid: firebase.auth().currentUser.uid,
         public_data: {
-            avatar: data.avatar,
             hash_tracker: firebase.database().ref('hash_trackers').push().key,
             name: data.name,
             username: data.username,
@@ -57,9 +61,32 @@ Sierra.SignUpSuccess = (data) =>
 
 Sierra.LoadPage = (page) =>
 {
-    $('div.page div.content').html(Sierra.Component.Parse(Sierra.ComponentManager.pages[page].template));
-    Sierra.ComponentManager.pages[page].OnLoad();
-    window.onresize();
+    page = page.toLowerCase();
+    let $pageContent = $('div.page div.content');
+    $pageContent.fadeOut(500);
+    setTimeout(() =>
+    {
+        $pageContent.html(Sierra.Component.Parse(Sierra.ComponentManager.pages[page].template));
+        $(() =>
+        {
+            Sierra.ComponentManager.pages[page].OnLoad();
+            window.onresize();
+        });
+        $pageContent.fadeIn(500);
+    }, 1000);
+};
+
+// URL parameters
+// = = = = = = = =
+Sierra.GetURLParameter = (name) =>
+{
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+};
+
+Sierra.ParseURL = ()=>
+{
+    let page = Sierra.GetURLParameter('page');
+    Sierra.LoadPage(page);
 };
 
 // Misc
