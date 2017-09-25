@@ -2,6 +2,7 @@ window.Sierra = {};
 Sierra.loadCounter = 0;
 Sierra.body = $('body bodycontent');
 Sierra.user = {};
+Sierra.currentPage = 'NotLoggedIn';
 
 Sierra.onLoad = new QuickEvent();
 Sierra.Load = () =>
@@ -11,7 +12,9 @@ Sierra.Load = () =>
     {
         setTimeout(() =>
         {
-            Sierra.LoadPage('NotLoggedIn');
+            if (Sierra.GetURLParameter('page') !== null)
+                Sierra.currentPage = Sierra.GetURLParameter('page');
+            Sierra.DoLoadPage(Sierra.currentPage, false);
         }, 50);
     }
     else if (Sierra.loadCounter === 2)
@@ -61,19 +64,27 @@ Sierra.SignUpSuccess = (data) =>
 
 Sierra.LoadPage = (page) =>
 {
+    Sierra.ChangeURL('page='+page, true);
+};
+
+Sierra.DoLoadPage = (page, transition = true) =>
+{
+    let timer = 500; if (!transition) timer = 0;
     page = page.toLowerCase();
     let $pageContent = $('div.page div.content');
-    $pageContent.fadeOut(500);
+    $pageContent.fadeOut(timer);
+
     setTimeout(() =>
     {
         $pageContent.html(Sierra.Component.Parse(Sierra.ComponentManager.pages[page].template));
         $(() =>
         {
-            Sierra.ComponentManager.pages[page].OnLoad();
+            if (Sierra.ComponentManager.pages[page].OnLoad !== undefined)
+                Sierra.ComponentManager.pages[page].OnLoad();
             window.onresize();
         });
-        $pageContent.fadeIn(500);
-    }, 1000);
+        $pageContent.fadeIn(timer);
+    }, timer);
 };
 
 // URL parameters
@@ -86,7 +97,14 @@ Sierra.GetURLParameter = (name) =>
 Sierra.ParseURL = ()=>
 {
     let page = Sierra.GetURLParameter('page');
-    Sierra.LoadPage(page);
+    Sierra.DoLoadPage(page);
+};
+
+Sierra.ChangeURL = (url, parse = false)=>
+{
+    window.history.pushState("object or string", "Title", "?"+url);
+    if (parse)
+        Sierra.ParseURL();
 };
 
 // Misc

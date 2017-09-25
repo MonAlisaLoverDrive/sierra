@@ -2,6 +2,7 @@ window.onresize = function (event)
 {
     $('.TextByWidth').each(function()
     {
+
         if ($(this).attr('ratio') === undefined)
         {
             $(this).attr('ratio', 16 / $(this).width());

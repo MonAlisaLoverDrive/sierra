@@ -1,1 +1,89 @@
-div.LeftBar{position:fixed;left:0;top:0;z-index:50;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100vh;width:3em;background:#2c2d36;transition:all 1s,height 1ms;border-right:.5vw solid #5c6576;overflow:hidden;color:#ebeef0;-webkit-animation-name:appear;animation-name:appear;-webkit-animation-duration:1s;animation-duration:1s;animaion-fill-mode:forwards}@media screen and (min-width:1280px) and (min-device-width:1280px){div.LeftBar{width:25vw}}div.LeftBar.open{width:100vw}@media screen and (min-width:720px) and (min-device-width:720px){div.LeftBar.open{width:50vw}}@media screen and (min-width:1280px) and (min-device-width:1280px){div.LeftBar.open{width:25vw;box-shadow:none}}div.LeftBar div.Menu{border-bottom:.25vh solid #5c6576}div.LeftBar div.Menu div.MenuItem{padding:.5em;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;cursor:pointer;transition:background .5s}div.LeftBar div.Menu div.MenuItem div.Icon{margin-right:.5em;height:1em;font-size:2em}div.LeftBar div.Menu div.MenuItem div.Icon img{height:1em}div.LeftBar div.Menu div.MenuItem div.Caption{line-height:2em;height:2em}div.LeftBar div.Menu div.MenuItem:hover{background:rgba(0,0,0,.5)}div.LeftBar div.Menu.Dark{color:#5c6576;background:#1f2026}div.LeftBar div.Notifications{padding:.5vmax;-webkit-flex:1;-ms-flex:1;flex:1}@-webkit-keyframes appear{from{-webkit-transform:translateX(-100%);transform:translateX(-100%);opacity:0}to{-webkit-transform:none;transform:none;opacity:1}}@keyframes appear{from{-webkit-transform:translateX(-100%);transform:translateX(-100%);opacity:0}to{-webkit-transform:none;transform:none;opacity:1}}div.LeftBarPlaceholder{height:100vh;width:5.5vw}@media screen and (min-width:1280px) and (min-device-width:1280px){div.LeftBarPlaceholder{width:25.5vw}}
+div.LeftBar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 3em;
+  background: #2c2d36;
+  transition: all 1s, height 1ms;
+  border-right: 0.5vw solid #5c6576;
+  overflow: hidden;
+  color: #ebeef0;
+  animation-name: appear;
+  animation-duration: 1s;
+  animaion-fill-mode: forwards;
+}
+@media screen and (min-width: 1280px) and (min-device-width: 1280px) {
+  div.LeftBar {
+    width: 25vw;
+  }
+}
+div.LeftBar.open {
+  width: 100vw;
+}
+@media screen and (min-width: 720px) and (min-device-width: 720px) {
+  div.LeftBar.open {
+    width: 50vw;
+  }
+}
+@media screen and (min-width: 1280px) and (min-device-width: 1280px) {
+  div.LeftBar.open {
+    width: 25vw;
+    box-shadow: none;
+  }
+}
+div.LeftBar div.Menu {
+  border-bottom: 0.25vh solid #5c6576;
+}
+div.LeftBar div.Menu div.MenuItem {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background .5s;
+}
+div.LeftBar div.Menu div.MenuItem div.Icon {
+  margin-right: 0.5em;
+  height: 1em;
+  font-size: 2em;
+}
+div.LeftBar div.Menu div.MenuItem div.Icon img {
+  height: 1em;
+}
+div.LeftBar div.Menu div.MenuItem div.Caption {
+  line-height: 2em;
+  height: 2em;
+}
+div.LeftBar div.Menu div.MenuItem:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+div.LeftBar div.Menu.Dark {
+  color: #5c6576;
+  background: #1f2026;
+}
+div.LeftBar div.Notifications {
+  padding: 0.5vmax;
+  flex: 1;
+}
+@keyframes appear {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+div.LeftBarPlaceholder {
+  height: 100vh;
+  width: 5.5vw;
+}
+@media screen and (min-width: 1280px) and (min-device-width: 1280px) {
+  div.LeftBarPlaceholder {
+    width: 25.5vw;
+  }
+}

@@ -1,0 +1,94 @@
+input,
+textarea {
+  color: #1f2026;
+  background: #ebeef0;
+  font-size: 3vh;
+  width: 100%;
+  padding: 1vmax;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  margin-top: 0.5vmax;
+  margin-bottom: 1vmax;
+  border-radius: 0.5vmax;
+  transition: background .5s;
+}
+input.Alert,
+textarea.Alert {
+  background: #ff4437;
+}
+input.Alert::placeholder,
+textarea.Alert::placeholder {
+  color: #ebeef0;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #5c6576;
+  transition: color .5s;
+}
+textarea {
+  flex: 1;
+}
+button {
+  font-size: 3vh;
+  width: 100%;
+  border-radius: 0.5vmax;
+  background: #3f7997;
+  color: #ebeef0;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  padding: 1vmax;
+  margin-top: 1vmax;
+  margin-bottom: 1vmax;
+  cursor: pointer;
+  transition: background .5s, color .5s;
+}
+button:hover {
+  color: #3f7997;
+  background: #aac8dc;
+}
+button.Loading {
+  animation-name: loading;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes loading {
+  0% {
+    background-color: #3f7997;
+  }
+  50% {
+    background-color: #aac8dc;
+  }
+  100% {
+    background-color: #3f7997;
+  }
+}
+button.Instagram {
+  background: #c13584;
+}
+button.Instagram:hover {
+  background: #aac8dc;
+}
+a {
+  color: #ebeef0;
+  text-decoration: none;
+  transition: color .5s;
+}
+a:hover {
+  color: #aac8dc;
+}
+div.Eye {
+  position: absolute;
+  display: inline-block;
+  color: #1f2026;
+  font-size: 3vh;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1vmax;
+  z-index: 2;
+}
+div.Eye.Active {
+  color: #aac8dc;
+}

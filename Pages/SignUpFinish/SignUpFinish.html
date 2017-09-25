@@ -1,38 +1,53 @@
 <div class="SignUpFinish">
-    <div class="Description">
-        <span class="TextByWidth TextSnowWhite TextHeader">{{Lang.Motd()}}</span>
-        <span class="TextByWidth TextJustify TextSnowWhite">
-            {{Lang.data.notLoggedInDescription}}
-        </span>
-    </div>
+    <div class="Layout">
+        <div class="Row">
 
-    <div class="Form">
+            <div class="Col-2">
+                <div class="Row-Md">
 
-        <form action="javascript:Sierra.ComponentManager.pages.NotLoggedIn.Continue()">
+                    <div class="Col-2">
+                    <span class="TextXLg" id="EmailLabel">E-mail <span
+                            class="SignIn Transition05s">or username</span></span>
+                        <input id="Email" placeholder={{Lang.Random('exampleEmails')}}>
+                        <span class="TextXLg" id="PasswordLabel">Password</span>
+                        <div class="NoWrap">
+                            <input id="Password"
+                                   placeholder={{Lang.Random('examplePasswords')}}
+                                   type="password">
+                            <div
+                                    class="Eye"><i
+                                    class="fa fa-eye" aria-hidden="true"></i></div>
+                            <br>
+                        </div>
+                    </div>
 
-            <span class="TextXLg" id="EmailLabel">E-mail <span class="SignIn Transition05s">or username</span></span>
-            <input id="Email" placeholder={{Lang.Random('exampleEmails')}}>
-            <span class="TextXLg" id="PasswordLabel">Password</span>
-            <input id="Password" placeholder={{Lang.Random('examplePasswords')}} type="password"><span class="Eye"><i class="fa fa-eye" aria-hidden="true"></i></span><br>
+                    <div class="Col-2 Last">
+                        <span class="TextXLg" id="NameLabel">Display name</span>
+                        <input id="Name" placeholder={{Lang.Random('exampleNames')}}>
+                        <span class="TextXLg" id="UsernameLabel">Username</span>
+                        <input id="Username" placeholder={{Lang.Random('exampleUsernames')}}>
+                    </div>
 
-            <div class="SignUp">
-                <span class="TextXLg" id="NameLabel">Display name</span>
-                <input id="Name" placeholder={{Lang.Random('exampleNames')}}>
-                <span class="TextXLg" id="UsernameLabel">Username</span>
-                <input id="Username" placeholder={{Lang.Random('exampleUsernames')}}>
+                </div>
 
-                <button class="Instagram">Continue with Instagram <i class="fa fa-instagram" aria-hidden="true"></i>
-                </button>
+
             </div>
-            <div class="TextCenter">
+
+            <div class="Col-2">
+                <span class="TextXLg">About me</span>
+                <textarea title="bio" rows="8"
+                          placeholder="I love cracking open a cold one with the boys"></textarea>
+            </div>
+            <div class="Col-2 Last">
+                123
+            </div>
+
+
+        </div>
+        <div class="Row">
+            <div class="TextCenter Col-2 Last">
                 <button id="Continue">Continue</button>
-                <span><a href="#" id="SwitchToSignIn" class="TextLg" onclick="Sierra.ComponentManager.pages.NotLoggedIn.SwitchToSignIn()">Already have an account?</a><br></span>
-                <span><a href="#" id="SwitchToSignUp" class="TextLg SignIn" onclick="Sierra.ComponentManager.pages.NotLoggedIn.SwitchToSignUp()">Do not have an account?</a><br></span>
-                <span><a href="#" class="TextLg SignIn">Restore password</a><br></span>
             </div>
-            <br>
-
-        </form>
-
+        </div>
     </div>
 </div>

@@ -1,35 +1,46 @@
 <div class="NotLoggedIn">
-    <div class="Description">
-        <span class="TextByWidth TextSnowWhite TextHeader">{{Lang.Motd()}}</span>
-        <span class="TextByWidth TextJustify TextSnowWhite">
-            {{Lang.data.notLoggedInDescription}}
-        </span>
-    </div>
-
-    <div class="Form">
-
-        <form action="javascript:Sierra.ComponentManager.pages.notloggedin.Continue()">
-
-            <span class="TextXLg" id="EmailLabel">E-mail <span class="SignIn Transition05s">or username</span></span>
-            <input id="Email" placeholder={{Lang.Random('exampleEmails')}}>
-            <span class="TextXLg" id="PasswordLabel">Password</span>
-            <input id="Password" placeholder={{Lang.Random('examplePasswords')}} type="password"><span class="Eye"><i class="fa fa-eye" aria-hidden="true"></i></span><br>
-
-            <div class="SignUp">
-                <span class="TextXLg" id="NameLabel">Display name</span>
-                <input id="Name" placeholder={{Lang.Random('exampleNames')}}>
-                <span class="TextXLg" id="UsernameLabel">Username</span>
-                <input id="Username" placeholder={{Lang.Random('exampleUsernames')}}>
+    <div class="Row">
+        <div class="Col-5 JustifyCenter">
+            <div>
+                <span class="TextByWidth TextSnowWhite TextHeader">{{Lang.Motd()}}</span>
+                <span class="TextByWidth TextJustify TextSnowWhite">
+                    {{Lang.data.notLoggedInDescription}}
+                </span>
             </div>
-            <div class="TextCenter">
-                <button id="Continue">Continue</button>
-                <span><a href="#" id="SwitchToSignIn" class="TextLg" onclick="Sierra.ComponentManager.pages.notloggedin.SwitchToSignIn()">Already have an account?</a><br></span>
-                <span><a href="#" id="SwitchToSignUp" class="TextLg SignIn" onclick="Sierra.ComponentManager.pages.notloggedin.SwitchToSignUp()">Do not have an account?</a><br></span>
-                <span><a href="#" class="TextLg SignIn">Restore password</a><br></span>
-            </div>
-            <br>
+        </div>
 
-        </form>
+        <div class="Col-3">
 
+            <form action="javascript:Sierra.ComponentManager.pages.notloggedin.Continue()">
+
+            <span class="TextXLg" id="EmailLabel">E-mail <span
+                    class="SignIn TransitionColor05s">or username</span></span>
+                <input id="Email" placeholder={{Lang.Random('exampleEmails')}}>
+                <span class="TextXLg" id="PasswordLabel">Password</span>
+                <div>
+                    <input id="Password" placeholder={{Lang.Random('examplePasswords')}} type="password">
+                    <div class="Eye"><i class="fa fa-eye" aria-hidden="true"></i></div>
+                    <br>
+                </div>
+
+                <div class="SignUp">
+                    <span class="TextXLg" id="NameLabel">Display name</span>
+                    <input id="Name" placeholder={{Lang.Random('exampleNames')}}>
+                    <span class="TextXLg" id="UsernameLabel">Username</span>
+                    <input id="Username" placeholder={{Lang.Random('exampleUsernames')}}>
+                </div>
+                <div class="TextCenter">
+                    <button id="Continue">Go partying</button>
+                    <span><a href="#" id="SwitchToSignIn" class="TextLg"
+                             onclick="Sierra.ComponentManager.pages.notloggedin.SwitchToSignIn()">Already have an account?</a><br></span>
+                    <span><a href="#" id="SwitchToSignUp" class="TextLg SignIn"
+                             onclick="Sierra.ComponentManager.pages.notloggedin.SwitchToSignUp()">Do not have an account?</a><br></span>
+                    <span><a href="#" class="TextLg SignIn">Restore password</a><br></span>
+                </div>
+                <br>
+
+            </form>
+
+        </div>
     </div>
 </div>

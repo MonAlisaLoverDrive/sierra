@@ -103,17 +103,17 @@
             allow: '_-'
         });
 
-        $('div.NotLoggedIn span.Eye').click(() =>
+        $('div.NotLoggedIn div.Eye').click(() =>
         {
             if ($('div.NotLoggedIn #Password').attr('type') === 'text')
             {
                 $('div.NotLoggedIn #Password').attr('type', 'password');
-                $('div.NotLoggedIn span.Eye').removeClass('Active');
+                $('div.NotLoggedIn div.Eye').removeClass('Active');
             }
             else
             {
                 $('div.NotLoggedIn #Password').attr('type', 'text');
-                $('div.NotLoggedIn span.Eye').addClass('Active');
+                $('div.NotLoggedIn div.Eye').addClass('Active');
             }
         });
     };
